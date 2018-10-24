@@ -1,0 +1,10 @@
+{
+    "ServiceName": "My State Service",
+    "GroupName": "Demo Services",
+    "MetadataJson": "{\"Description\": \"My state service\"}",
+    "Job": {
+        "JobSchedule": {
+            "IntervalSeconds": 5
+        }
+    }
+}

@@ -1,35 +1,32 @@
-declare var _SupercondActor: {
-    /**
-    * @returns logger object writing messages to the service fabric ETW provider
-    */
-    Logger: _SupercondActor.IPlatformLogger;
-
-    /**
-    * @returns {IPlatformContext} - context object allowing communications with the underlying service fabric actor
-    */
-    Context: _SupercondActor.IPlatformContext;
-};
-
-// export interface ISupercondActorProxy {
+// declare var _SupercondActor: {
+//     /**
+//     * @returns logger object writing messages to the service fabric ETW provider
+//     */
 //     Logger: _SupercondActor.IPlatformLogger;
+
+//     /**
+//     * @returns {IPlatformContext} - context object allowing communications with the underlying service fabric actor
+//     */
 //     Context: _SupercondActor.IPlatformContext;
-// }
+// };
 
-declare namespace _SupercondActor {
+declare var _SupercondActor: SupercondActor.ISupercondActor;
 
-    export interface ISupercondActor {
-        Logger: _SupercondActor.IPlatformLogger;
-        Context: _SupercondActor.IPlatformContext;
+declare namespace SupercondActor {
+
+    interface ISupercondActor {
+        Logger: SupercondActor.IPlatformLogger;
+        Context: SupercondActor.IPlatformContext;
     }
 
-   export interface IPlatformLogger {
+    interface IPlatformLogger {
         logVerbose(args: any): void;
         logInfo(args: any): void;
         logWarning(args: any): void;
         logError(args: any): void;
     }
 
-    export interface IPlatformContext {
+    interface IPlatformContext {
         saveLocalStateAsync(key: string, value: any): Promise<any>;
 
         /**
@@ -40,12 +37,12 @@ declare namespace _SupercondActor {
         getServiceDescriptorAsync(): Promise<IPlatformServiceDescriptorInfo>;
     }
 
-    export interface IPlatformServiceDescriptorInfo {
+    interface IPlatformServiceDescriptorInfo {
         currentAppVersion: string;
         descriptor: IPlatformServiceDescriptor;
     }
 
-    export interface IPlatformServiceDescriptor {
+    interface IPlatformServiceDescriptor {
         serviceID: string;
         serviceName: string;
         groupName: string;
@@ -54,13 +51,13 @@ declare namespace _SupercondActor {
         removalRequested: boolean;
     }
 
-    export interface IPlatformJobDescriptor {
+    interface IPlatformJobDescriptor {
         jobScript: string;
         jobSchedule: IPlatformJobSchedule;
         stopRequested: boolean;
     }
 
-    export interface IPlatformJobSchedule {
+    interface IPlatformJobSchedule {
         cronString?: string;
         intervalSeconds?: number;
         timeoutSeconds?: number;

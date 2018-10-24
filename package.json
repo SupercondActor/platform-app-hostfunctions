@@ -1,16 +1,16 @@
 {
-  "name": "supercondactor-ts1",
-  "version": "1.0.0",
-  "description": "Simple mailer service",
+  "name": "supercondactor-localstate",
+  "version": "1.2.0",
+  "description": "Saving Local State example Scheduled Service for the Service Fabric Business Platform",
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "webpack": "webpack --mode production",
+    "build": "webpack --mode production",
     "test": "ts-node node_modules/jasmine/bin/jasmine"
   },
   "repository": {
     "type": "git",
-    "url": "https://digitsy.visualstudio.com/_git/SupercondActor-ts1"
+    "url": "https://github.com/SupercondActor/platform-script-localstate"
   },
   "author": "Aleksey Solonchev",
   "license": "MIT",
