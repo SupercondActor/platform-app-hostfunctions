@@ -1,3 +1,3 @@
 // calling one of my global entry points defined in the index.ts file
-let counter = await MyEntryPoints.incrementCounter();
-console.log('Message from my service: counter=', counter);
+let TestServiceManager = new MyServiceTypes.ServiceManager(_SupercondActor_Context);
+await TestServiceManager.runTestCycle();

@@ -1,6 +1,8 @@
+/// <reference path="../../SupercondActorTypes.d.ts" />
+
 export class _SupercondActorMock implements SupercondActor.ISupercondActor {
     Logger: SupercondActor.IPlatformLogger = new SupercondActorLoggerMock();
-    Context: SupercondActor.IPlatformContext = new SupercondActorContextMock();
+    Service: SupercondActor.IPlatformContext = new SupercondActorContextMock();
     Config: SupercondActor.IPlatformConfig = new SupercondActorPlatformConfigMock();
 }
 
@@ -49,6 +51,11 @@ class SupercondActorPlatformConfigMock implements SupercondActor.IPlatformConfig
             resolve('secretValue');
         });
     }
+    getApiAuthConfigurationAsync(): Promise<SupercondActor.IApiAuthConfiguration> {
+        return new Promise((resolve, reject) => {
+            resolve(null);
+        });
+    }
 }
 
 class SupercondActorContextMock implements SupercondActor.IPlatformContext {
@@ -89,7 +96,7 @@ class SupercondActorContextMock implements SupercondActor.IPlatformContext {
             }
         });
     }
-    getServiceDescriptorAsync(): Promise<SupercondActor.IScheduledServiceInfo | SupercondActor.ILongRunningServiceInfo> {
+    getServiceDescriptorAsync(): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve(new SupercondActorServiceInfoMock());
         });
@@ -132,6 +139,11 @@ class SupercondActorContextMock implements SupercondActor.IPlatformContext {
     callScheduledServiceAsync(serviceID: string, paramJson: string, appUrl?: string): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve('{}');
+        });
+    }
+    getApplicationsAsync(): Promise<SupercondActor.IApplicationInfo[]> {
+        return new Promise((resolve, reject) => {
+            resolve([]);
         });
     }
     createApplicationAsync(appUrl: string): Promise<string> {

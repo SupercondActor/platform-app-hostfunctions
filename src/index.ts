@@ -1,44 +1,13 @@
-// Entry points should be listed here.
+// Entry point Types should be listed here.
+// This is how you connect your TypeScript code to your service's job script.
+import { ServiceManager } from "./app/service-manager";
 
-// These global functions are just an example.
-// You can use any kind of coding style here, the only requirement is that
-// you should be able to call your entry point from your service's job script at runtime.
+// You can use any kind of coding style here, 
+// you just should be able to instantiate your entry point types 
+// in your service's job script at runtime.
 
-export class MyEntryPointsDefinition {
-    setCounter = async function (nbr: number): Promise<any> {
-        // save number to local state
-        let res = await _SupercondActor.Context.saveLocalStateAsync('counter', nbr);
-        _SupercondActor.Logger.logInfo(['saveLocalStateAsync result', res]);
-
-        // read number from local state
-        let counter = await _SupercondActor.Context.getLocalStateAsync('counter');
-        _SupercondActor.Logger.logInfo(['getLocalStateAsync result', counter]);
-
-        return counter;
-    };
-
-    incrementCounter = async function (): Promise<any> {
-        // read counter from local state
-        let counter = await _SupercondActor.Context.getLocalStateAsync('counter');
-        _SupercondActor.Logger.logInfo(['getLocalStateAsync counter', counter]);
-    
-        // increment counter
-        if (!counter) {
-            counter = 0;
-        }
-        counter++;
-    
-        // save counter to local state
-        let res = await _SupercondActor.Context.saveLocalStateAsync('counter', counter);
-        _SupercondActor.Logger.logInfo(['saveLocalStateAsync counter', res]);
-        return res;
-    };
-
-    listStateKeys = async function (): Promise<string[]> {
-        let res = await _SupercondActor.Context.getLocalStateKeysAsync();
-        _SupercondActor.Logger.logInfo(['getLocalStateKeysAsync', res]);
-        return res;
-    };
-}
-
-(global as any).MyEntryPoints = new MyEntryPointsDefinition();
+(global as any).MyServiceTypes = {
+    // It's OK to delare global types here, 
+    // BUT DON'T CREATE GLOBAL INSTANCES OR VARIABLES - THAT LEADS TO MULTITHREADING PROBLEMS!!!
+    ServiceManager: ServiceManager
+};

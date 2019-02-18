@@ -1,11 +1,11 @@
 {
-    "ServiceName": "My State Service",
+    "ServiceName": "Test Service Manager",
     "GroupName": "Demo Services",
-    "MetadataJson": "{\"Description\": \"My state scheduled service\"}",
+    "MetadataJson": "{\"Description\": \"Test Service Manager\"}",
     "Job": {
         "StopRequested": true,
         "JobSchedule": {
-            "IntervalSeconds": 5
+            "IntervalSeconds": 15
         }
     }
 }
