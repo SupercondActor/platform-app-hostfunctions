@@ -7,7 +7,7 @@ import { _SupercondActorMock } from "./support/SupercondActorMock";
 (global as any)._SupercondActor = new _SupercondActorMock();
 
 // entry points class definition from the index.ts file
-import { ServiceManager } from "./../src/app/service-manager";
+import { TestManager } from "../src/app/test-manager";
 
 // Here is our source code for entry points
 require('../src/index.ts');
@@ -20,7 +20,7 @@ require('../src/index.ts');
 
 describe("_SupercondActor object", () => {
     it("should save and increment counter", async () => {
-        let entry = new ServiceManager(new _SupercondActorMock());
+        let entry = new TestManager(new _SupercondActorMock());
         let res = await entry.getApiServiceConfig();
         expect(res.serviceName).toBe('Test Api Service');
     });

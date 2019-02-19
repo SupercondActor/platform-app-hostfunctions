@@ -1,5 +1,5 @@
 
-export class ServiceManager {
+export class TestManager {
 
     // _SupercondActor context object must be injected at runtime
     constructor(private supercondActor: SupercondActor.ISupercondActor) { }
@@ -75,8 +75,8 @@ export class ServiceManager {
                     "Value": "PathPrefixStrip: /api/testapp"
                 }
             ],
-            serviceScript: `let TestServiceManager = new MyServiceTypes.ServiceManager(_SupercondActor_Context);
-let counters = await TestServiceManager.requestServiceCounts();
+            serviceScript: `let TestManager = new MyServiceTypes.TestManager(_SupercondActor_Context);
+let counters = await TestManager.requestServiceCounts();
 _SupercondActor_Context.Logger.logInfo(['Awailable test services', counters]);
 return counters;`,
             stopRequested: false
@@ -120,8 +120,8 @@ return counters;`,
                     intervalSeconds: 15
                 },
                 stopRequested: false,
-                jobScript: `let TestServiceManager = new MyServiceTypes.ServiceManager(_SupercondActor_Context);
-let results = await TestServiceManager.runSystemTests(${runCounter});
+                jobScript: `let TestManager = new MyServiceTypes.TestManager(_SupercondActor_Context);
+let results = await TestManager.runSystemTests(${runCounter});
 _SupercondActor_Context.Logger.logInfo(['Scheduled Service #${runCounter} Test results', results]);
 return results;`
             }
@@ -130,11 +130,11 @@ return results;`
     }
 
     getLongRunningServiceConfig(runCounter: number): SupercondActor.ILongRunningServiceConfig {
-        let sericeScript = `let TestServiceManager = new MyServiceTypes.ServiceManager(_SupercondActor_Context);
+        let sericeScript = `let TestManager = new MyServiceTypes.TestManager(_SupercondActor_Context);
 while (true) {
-    let results = await TestServiceManager.runSystemTests(${runCounter});
+    let results = await TestManager.runSystemTests(${runCounter});
     _SupercondActor_Context.Logger.logInfo(['--Long-running Service #${runCounter} Test results', results]);
-    await TestServiceManager.sleep(17000);
+    await TestManager.sleep(17000);
 }`;
         let serviceConfig: SupercondActor.ILongRunningServiceConfig = {
             serviceName: `Test Long-running Service #${runCounter}`,

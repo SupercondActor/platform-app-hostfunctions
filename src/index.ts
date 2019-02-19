@@ -1,6 +1,6 @@
 // Entry point Types should be listed here.
 // This is how you connect your TypeScript code to your service's job script.
-import { ServiceManager } from "./app/service-manager";
+import { TestManager } from "./app/test-manager";
 
 // You can use any kind of coding style here, 
 // you just should be able to instantiate your entry point types 
@@ -9,5 +9,5 @@ import { ServiceManager } from "./app/service-manager";
 (global as any).MyServiceTypes = {
     // It's OK to delare global types here, 
     // BUT DON'T CREATE GLOBAL INSTANCES OR VARIABLES - THAT LEADS TO MULTITHREADING PROBLEMS!!!
-    ServiceManager: ServiceManager
+    TestManager: TestManager
 };
