@@ -21,7 +21,7 @@ require('../src/index.ts');
 describe("_SupercondActor object", () => {
     it("should save and increment counter", async () => {
         let entry = new TestManager(new _SupercondActorMock());
-        let res = await entry.getApiServiceConfig();
+        let res = await entry.getRootApiServiceConfig();
         expect(res.serviceName).toBe('Test Api Service');
     });
 });
