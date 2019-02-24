@@ -1,5 +1,5 @@
 {
-    "ServiceName": "Test Service Manager",
+    "ServiceName": "Test Manager",
     "GroupName": "Demo Services",
     "MetadataJson": "{\"Description\": \"Test Service Manager\"}",
     "Job": {

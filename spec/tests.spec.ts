@@ -22,6 +22,6 @@ describe("_SupercondActor object", () => {
     it("should save and increment counter", async () => {
         let entry = new TestManager(new _SupercondActorMock());
         let res = await entry.getRootApiServiceConfig();
-        expect(res.serviceName).toBe('Test Api Service');
+        expect(res.serviceName).toBe('Root API Service #1');
     });
 });

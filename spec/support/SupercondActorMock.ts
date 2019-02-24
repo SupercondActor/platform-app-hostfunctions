@@ -193,8 +193,8 @@ class SupercondActorApiServiceConfigMock implements SupercondActor.IApiServiceCo
     filesConfig = null;
     proxyConfiguration = [
         {
-            "Key": "traefik.frontend.rule",
-            "Value": "PathPrefixStrip: /api/v1"
+            "key": "traefik.frontend.rule",
+            "value": "PathPrefixStrip: /api/v1"
         }
     ]
 }

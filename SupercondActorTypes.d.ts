@@ -16,8 +16,8 @@
     }
 
     interface IKeyValuePair {
-        Key: string;
-        Value: string;
+        key: string;
+        value: string;
     }
 
     interface IApiResponse {
