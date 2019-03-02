@@ -1,11 +1,9 @@
 {
     "ServiceName": "Test Manager",
     "GroupName": "Demo Services",
-    "MetadataJson": "{\"Description\": \"Test Service Manager\"}",
-    "Job": {
-        "StopRequested": true,
-        "JobSchedule": {
-            "IntervalSeconds": 15
-        }
+    "MetadataJson": "{\"Description\": \"Test Manager scheduled service\"}",
+    "StopRequested": true,
+    "JobSchedule": {
+        "IntervalSeconds": 15
     }
 }

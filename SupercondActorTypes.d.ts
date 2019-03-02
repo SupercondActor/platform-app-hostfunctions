@@ -218,14 +218,11 @@
         serviceName: string;
         groupName?: string;
         metadataJson?: string;
-        job: IScheduledJobConfig;
-        removalRequested?: boolean;
-    }
-
-    interface IScheduledJobConfig {
-        jobScript?: string;
+        instanceCount?: number;
+        serviceScript?: string;
         jobSchedule?: IServiceJobSchedule;
         stopRequested?: boolean;
+        removalRequested?: boolean;
     }
 
     interface IServiceJobSchedule {
@@ -235,7 +232,7 @@
     }
 
     interface IApiServiceConfig {
-        serviceUri?: string;
+        serviceID?: string;
         serviceName: string;
         groupName?: string;
         instanceCount: number;
@@ -255,7 +252,7 @@
     }
 
     interface ILongRunningServiceConfig {
-        serviceUri?: string;
+        serviceID?: string;
         serviceName: string;
         groupName?: string;
         instanceCount: number;

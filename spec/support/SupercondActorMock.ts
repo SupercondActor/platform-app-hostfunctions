@@ -118,12 +118,12 @@ class SupercondActorContextMock implements SupercondActor.IPlatformContext {
     }
     createOrUpdateApiServiceAsync(serviceConfig: SupercondActor.IApiServiceConfig, appUrl?: string): Promise<string> {
         return new Promise((resolve, reject) => {
-            resolve(serviceConfig.serviceUri);
+            resolve(serviceConfig.serviceID);
         });
     }
     createOrUpdateLongRunningServiceAsync(serviceConfig: SupercondActor.ILongRunningServiceConfig, appUrl?: string): Promise<string> {
         return new Promise((resolve, reject) => {
-            resolve(serviceConfig.serviceUri);
+            resolve(serviceConfig.serviceID);
         });
     }
     createOrUpdateScheduledServiceAsync(serviceConfig: SupercondActor.IScheduledServiceConfig, appUrl?: string): Promise<string> {
@@ -180,7 +180,7 @@ class SupercondActorScheduledServiceConfigMock implements SupercondActor.ISchedu
     }
 }
 class SupercondActorApiServiceConfigMock implements SupercondActor.IApiServiceConfig {
-    serviceUri = 'mockServiceUri';
+    serviceID = 'mockServiceUri';
     serviceName = 'mockServiceName';
     groupName = 'mockGroupName';
     instanceCount = 1;
@@ -199,7 +199,7 @@ class SupercondActorApiServiceConfigMock implements SupercondActor.IApiServiceCo
     ]
 }
 class SupercondActorLongRunningServiceConfigMock implements SupercondActor.ILongRunningServiceConfig {
-    serviceUri = 'mockServiceUri';
+    serviceID = 'mockServiceUri';
     serviceName = 'mockServiceName';
     groupName = 'mockGroupName';
     instanceCount = 1;
@@ -210,7 +210,7 @@ class SupercondActorLongRunningServiceConfigMock implements SupercondActor.ILong
 class SupercondActorApiServiceStateMock implements SupercondActor.IApiServiceState {
     private srvConfig = new SupercondActorApiServiceConfigMock();
     platformState: SupercondActor.IStatelessServicePlatformState = {
-        serviceUri: this.srvConfig.serviceUri,
+        serviceUri: this.srvConfig.serviceID,
         serviceTypeName: 'mockServiceTypeName',
         serviceManifestVersion: '1.0.0',
         healthState: 0,
@@ -224,7 +224,7 @@ class SupercondActorApiServiceStateMock implements SupercondActor.IApiServiceSta
 class SupercondActorLongRunningServiceStateMock implements SupercondActor.ILongRunningServiceState {
     private srvConfig = new SupercondActorLongRunningServiceConfigMock();
     platformState: SupercondActor.IStatelessServicePlatformState = {
-        serviceUri: this.srvConfig.serviceUri,
+        serviceUri: this.srvConfig.serviceID,
         serviceTypeName: 'mockServiceTypeName',
         serviceManifestVersion: '1.0.0',
         healthState: 0,
