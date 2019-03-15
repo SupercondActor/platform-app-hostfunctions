@@ -7,7 +7,8 @@ import { TestManager } from "./app/test-manager";
 // in your service's job script at runtime.
 
 (global as any).MyServiceTypes = {
-    // It's OK to delare global types here, 
-    // BUT DON'T CREATE GLOBAL INSTANCES OR VARIABLES - THAT LEADS TO MULTITHREADING PROBLEMS!!!
+    // It's OK to delare global types or immutable variables here, 
+    // BUT DON'T CREATE GLOBAL INSTANCES OR VARIABLES THAT CAN CHANGE -
+    // IT WILL LEAD TO MULTITHREADING PROBLEMS!!!
     TestManager: TestManager
 };
